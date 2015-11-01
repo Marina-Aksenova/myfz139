@@ -1,0 +1,85 @@
+<?php
+/** @var \Application\View\Helper\Layout $layoutHelper */
+//$layoutHelper = $this->layoutHelper('invoce');
+$layoutHelper = $this->layoutHelper();
+$tmpData = $layoutHelper->getData();
+?>
+
+<?= $this->doctype(); ?>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<?php echo $this->headTitle() ?>
+
+	<?php echo $this->headMeta()
+		->appendName('viewport', 'width=device-width, initial-scale=1.0')
+		->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+	?>
+
+	<!-- Le styles -->
+	<?php echo $this->headLink()
+		->prependStylesheet($this->basePath('css/style.css'))
+//		->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+		->prependStylesheet($this->basePath('css/bootstrap.min.css')) ?>
+
+	<!-- Scripts -->
+	<?php echo $this->headScript()
+		->prependFile($this->basePath('js/bootstrap.min.js'))
+		->prependFile($this->basePath('js/jquery.min.js'))
+		->prependFile($this->basePath('js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+		->prependFile($this->basePath('js/html5shiv.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',)); ?>
+
+</head>
+<body>
+<div class="container-fluid" id="main">
+	<div class="container-fluid" id="header">
+		<div class="row container">
+			<div class="col-md-3">
+				<a href="/statistics/cl-statistic-often">
+					<?php if ($layoutHelper->getIdentity()) { ?>
+						<img src="<?= $layoutHelper->getLogoSource()?>" alt="Барьер 139ФЗ" />
+					<?php } ?>
+				</a>
+			</div>
+			<div class="col-md-9">
+				<span><i class="glyphicon glyphicon-user"></i><?php echo $this->escapeHtml($this->layoutHelper()->getUserName()); ?></span>
+				<?php if ($layoutHelper->getIdentity()) { ?>
+					<a class="btn btn-primary btn-sm" href="<?php echo $this->url('logout') ?>"><?php echo $this->translate('Выйти') ?> <i class="glyphicon glyphicon-log-out"></i></a>
+				<?php } else { ?>
+					<a class="btn btn-primary btn-sm" href="<?php echo $this->url('login') ?>"><?php echo $this->translate('Войти') ?> <i class="glyphicon glyphicon-log-in"></i></a>
+				<?php } ?>
+			</div>
+		</div>
+	</div>
+	<div class="container" id="content">
+		<div class="row">
+			<div class="col-md-12">
+				<?php if ($layoutHelper->getIdentity()) { ?>
+					<?php echo $this->navigation()->menu()->renderMenu('Navigation', ['ulClass' => 'nav nav-pills']); ?>
+				<?php } ?>
+
+				<?php echo $this->content; ?>
+			</div>
+		</div>
+	</div>
+	<div id="empty"></div>
+	<div id="footer">
+		<div class="row container">
+			<?php if ($layoutHelper->getIdentity()) { ?>
+				<div class="col-md-5"><?= $this->escapeHtml($tmpData['copyright']) ?></div>
+				<div class="col-md-4"><?= (empty($tmpData['phone']) ? '' : $this->escapeHtml($tmpData['phone'])) . ', ' . (empty($tmpData['email']) ? '' : $this->escapeHtml($tmpData['email'])) ?></div>
+			<?php } else { ?>
+				<div class="col-md-9"></div>
+			<?php } ?>
+
+			<div class="col-md-3">
+				<a href="http://ruspromsoft.ru/solutions/telecom-operators/139-fz/" target="_blanck" class="rps"></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php echo $this->inlineScript() ?>
+
+</body>
+</html>

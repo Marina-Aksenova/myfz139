@@ -1,0 +1,63 @@
+<?php if ($this->pageCount): ?>
+    <!-- First page link -->
+    <?php if (isset($this->previous)): ?>
+      <a href="<?php echo $this->url($this->route[0], getRouteData($this->route, $this->first)); ?>">
+		  Начало
+      </a> |
+    <?php else: ?>
+      <span class="disabled">Начало</span> |
+    <?php endif; ?>
+
+    <!-- Previous page link -->
+    <?php if (isset($this->previous)): ?>
+      <a href="<?php echo $this->url($this->route[0], getRouteData($this->route, $this->previous)); ?>">
+        &lt; Предыдущая
+      </a> |
+    <?php else: ?>
+      <span class="disabled">&lt; Предыдущая</span> |
+    <?php endif; ?>
+
+    <?php for($i = 1; $i <= $this->pageCount; $i++) { ?>
+        <a href="<?php echo $this->url($this->route[0], getRouteData($this->route, $i)); ?>">
+            <?= $i ?>
+        </a> |
+    <?php } ?>
+
+
+    <!-- Next page link -->
+    <?php if (isset($this->next)): ?>
+      <a href="<?php echo $this->url($this->route[0], getRouteData($this->route, $this->next)); ?>">
+        Следующая &gt;
+      </a> |
+    <?php else: ?>
+      <span class="disabled">Следующая &gt;</span> |
+    <?php endif; ?>
+
+    <!-- Last page link -->
+    <?php if (isset($this->next)): ?>
+      <a href="<?php echo $this->url($this->route[0], getRouteData($this->route, $this->last)); ?>">
+        Конец
+      </a>
+    <?php else: ?>
+      <span class="disabled">Конец</span>
+    <?php endif; ?>
+
+<?php endif; ?>
+
+<?php
+    function getRouteData($routeInfo, $page) {
+        $routeData = [];
+
+        if (!empty($routeInfo[1])) {
+            $routeData['controller'] = $routeInfo[1];
+        }
+
+        if (!empty($routeInfo[2])) {
+            $routeData['action'] = $routeInfo[2];
+        }
+
+        $routeData['page'] = $page;
+
+        return $routeData;
+    }
+?>

@@ -1,0 +1,35 @@
+<?php
+
+use Application\View\Helper\DomainFieldset;
+use Application\View\Helper\FormRow;
+use Zend\Form\View\Helper\FormCollection;
+
+$title = 'Добавление разрешенного списка';
+/** @var Zend\View\Renderer\PhpRenderer $this */
+$this->headTitle($title);
+$this->headScript()->appendFile('/js/views/domain.js', 'text/javascript');
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<?php
+	$form->prepare();
+
+	echo $this->form()->openTag($form);
+
+	//echo $this->domainFormCollectionHelper($form->get('domains'));
+	$formCollectionHelper = new FormCollection();
+	$formCollectionHelper->setView($this);
+	$fieldsetHelper = new DomainFieldset();
+	$fieldsetHelper->setView($this);
+	$formCollectionHelper->setFieldsetHelper($fieldsetHelper);
+	echo $formCollectionHelper->render($form->get('domains'));
+
+	echo $this->formHidden($form->get('csrf'));
+?>
+<br>
+<?= $this->formElement($form->get('submit')); ?>
+<button class="btn btn-default domain-add">+ Добавить домен</button>
+<a href="/lists/white-list/index" class="btn btn-default">Отмена</a>
+
+<?php echo $this->form()->closeTag(); ?>
+

@@ -1,0 +1,29 @@
+<?php
+$title = 'Часто посещаемые домены по группе';
+/** @var Zend\View\Renderer\PhpRenderer $this */
+$this->headTitle($title);
+
+/** @var array $statistics */
+?>
+
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<span>ТОП 100</span>
+
+<table class="table table-striped">
+	<thead>
+	<tr>
+		<th>Домен</th>
+		<th>Количество блокировок</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php foreach ($statistics as $item) { ?>
+		<tr>
+			<td><?= $this->escapeHtml($item['resource_name']) ?></td>
+			<td><?= $this->escapeHtml($item['amount_lock']) ?></td>
+		</tr>
+	<?php } ?>
+	</tbody>
+</table>

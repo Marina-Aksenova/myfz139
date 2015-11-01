@@ -1,0 +1,23 @@
+<?php
+
+$title = 'Редактирование разрешенного списка';
+/** @var Zend\View\Renderer\PhpRenderer $this */
+$this->headTitle($title);
+
+/** @var string $domain */
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<form class="form-horizontal" method="post">
+
+	<?php echo $this->formRowHelper($form->get('resource')); ?>
+	<?php echo $this->formRowHelper($form->get('description')); ?>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<?php echo $this->formRow($form->get('submit')); ?>
+			<a href="<?= $this->url('lists', ['controller' => 'white-list', 'action' => 'remove', 'id' => $er_id]) ?>" class="btn btn-default">Удалить</a>
+		</div>
+	</div>
+
+</form>

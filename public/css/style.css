@@ -1,0 +1,294 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.clear {
+    clear: both;
+}
+
+body{
+    background:#efefef;
+    /*color: #616161;*/
+}
+
+.container-fluid{
+    padding:0;
+}
+
+#header{
+    height:100px;
+}
+
+#footer .container,
+#header .container{
+    margin:0 auto;
+    padding:0;
+}
+
+#header .container .col-md-3{
+    margin-top:5px;
+}
+
+
+#header .col-md-9{
+    margin-top:30px;
+    text-align: right;
+    padding:0;
+}
+
+#header .col-md-9 i.glyphicon-off{
+    margin-left:5px;
+}
+
+#header .col-md-9 i.glyphicon-user{
+    margin-right:5px;
+}
+
+#header .btn-primary{
+    margin-left: 10px;
+}
+
+#content{
+    padding-bottom:100px;
+}
+
+#content{
+    background: #f2f5f7 none repeat scroll 0 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 20px;
+    /*margin:0 auto 100px auto;*/
+    height:100%;
+}
+
+#content #authentication{
+    width: 460px;
+    margin:0 30%;
+}
+
+#authentication pre{
+    width: 220px;
+    font-size: 10px;
+}
+
+#authentication .form-group{
+    margin:0;
+}
+
+#authentication label{
+    color: #616161;
+}
+
+#authentication .captcha{
+    padding:0 20%;
+}
+
+.btn-primary,
+pre,
+.btn-default{
+    background: #d7ebf9;
+    border: 1px solid #aed0ea;
+    color: #2779aa;
+    font-weight: bold;
+}
+
+#main{
+    position: relative;
+    min-height: 100%;
+}
+
+#empty{
+    height:100px;
+}
+
+#footer {
+    height: 100px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+#footer .col-md-5{
+    text-align: right;
+    padding:0;
+}
+
+#footer .container{
+    margin-top:20px;
+}
+
+#footer  .col-md-4{
+    text-align:right;
+}
+
+#footer  .col-md-5{
+    text-align:left;
+    padding-left:15px;
+}
+
+a.rps {
+    background-image: url("/img/logo_rps.png");
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    display: block;
+    height: 38px;
+    text-decoration: none;
+    width: 200px;
+    float: right;
+}
+a.rps:hover {
+    background-position: left top;
+}
+
+.table input[type="checkbox"]{
+    position: relative;
+}
+
+select.form-control{
+    width:200px;
+}
+
+span.col-sm-2{
+    min-width:200px;
+    margin-right:20px;
+    text-align:right;
+    margin-top:5px;
+}
+
+input [type=file]{
+    background: #d7ebf9 none repeat scroll 0 0;
+    border: 1px solid #aed0ea;
+    border-radius: 6px;
+    color: #2779aa;
+    font: 1em/26px Arial;
+    height: 26px;
+    padding: 0 5px;
+    width: 220px;
+}
+
+#authentication input[type=text],
+input.form-control{
+    width:200px;
+    background: #d7ebf9;
+    border: 1px solid #aed0ea;
+    border-radius: 6px;
+    color: #2779aa;
+    font: 1em/26px Arial;
+    padding: 0 5px;
+    width: 220px;
+    height: 34px;
+}
+
+#create_domain label{
+    display: block;
+    margin-bottom:0;
+}
+
+#create_domain .glyphicon{
+    margin-left:10px;
+}
+
+.statistic div{
+    width: auto;
+}
+
+.form-domain-collection .input-div {
+    width: 200px;
+}
+
+.nav-pills > li > a{
+    height:39px;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:focus,
+.nav-pills > li.active > a:hover {
+    background: #3baae3;
+    border: 1px solid #2694e8;
+    color: #fff;
+    font-weight: bold;
+    height:38px;
+}
+
+.nav > li > a:focus,
+.nav > li > a:hover {
+    background: #e4f1fb;
+    border: 1px solid #74b2e2;
+    color: #0070a3;
+}
+
+#profile .form-inline .col-sm-3{
+    margin-top:7px;
+}
+
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+    background-color: #e5f1fb;
+}
+
+.btn-default:hover {
+    background-color:#e4f1fb;
+    border: 1px solid #74b2e2;
+    color: #0070a3;
+}
+
+.btn-default.active,
+.btn-default:active,
+.open > .dropdown-toggle.btn-default {
+    background: #e4f1fb;
+    border: 1px solid #74b2e2;
+    color: #0070a3;
+}
+
+.btn-default.active.focus,
+.btn-default.active:focus,
+.btn-default.active:hover,
+.btn-default.focus:active,
+.btn-default:active:focus,
+.btn-default:active:hover,
+.open > .dropdown-toggle.btn-default.focus,
+.open > .dropdown-toggle.btn-default:focus,
+.open > .dropdown-toggle.btn-default:hover {
+    background: #3baae3;
+    border: 1px solid #2694e8;
+    color: #fff;
+}
+
+.btn.focus, .btn:focus{
+    color: #fff;
+}
+
+.btn-default.focus,
+.btn-default:focus {
+    background-color: #3baae3;
+    border-color: #2694e8;
+    color: #fff;
+}
+
+.help-block{
+    min-width:400px;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.table > thead > tr > th,
+table{
+    text-align:center;
+}
+
+option {
+    width: 100px;
+}
+
+#create_domain input.btn{
+    margin-right:5px;
+}
+
+h1{
+    color: #3d80b3;
+    margin-left:15px;
+    font-size: 2em;
+}

@@ -1,0 +1,34 @@
+<?php
+use User\Form\Profile;
+use Zend\Form\View\Helper\Form;
+use Application\View\Helper\Layout;
+
+$title = 'Профиль клиента';
+/** @var Zend\View\Renderer\PhpRenderer $this */
+$this->headTitle($title);
+
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<?php if ($message): ?>
+	<div><?= $message ?></div>
+<?php endif; ?>
+
+<form id="profile" class="form-horizontal" method="post">
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Логин</label>
+		<div class="form-inline">
+			<span class="col-sm-3"><strong><?php echo $this->escapeHtml($clientLogin) ?></strong></span>
+			<a href="/user/profile/password" class="btn btn-default" type="button">Изменить пароль</a>
+		</div>
+	</div>
+	<?php echo $this->formRowHelper($form->get('name')); ?>
+
+	<?php echo $this->formRowHelper($form->get('client_email')); ?>
+
+	<?php echo $this->formRowHelper($form->get('type_list')); ?>
+
+	<?php echo $this->formRowHelper($form->get('submit')); ?>
+
+</form>

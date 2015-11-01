@@ -1,0 +1,40 @@
+<?php
+$title = 'Статистика по клиенту';
+/** @var Zend\View\Renderer\PhpRenderer $this */
+$this->headTitle($title);
+$this->headScript()->appendFile('/js/views/statisticPeriod.js', 'text/javascript');
+$this->headLink()->appendStylesheet('/js/static/jquery-ui-1.11.4.custom/jquery-ui.min.css');
+$this->headScript()->appendFile('/js/static/jquery-ui-1.11.4.custom/jquery-ui.min.js', 'text/javascript');
+
+/** @var array $statistics */
+?>
+
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<?php if($err_message):?>
+	<div><?=$err_message?></div>
+<?php endif;?>
+
+<?php echo $this->formStatisticHelper($form); ?>
+
+<table class="table table-striped">
+	<thead>
+	<tr>
+		<th>Домен</th>
+		<th>Количество блокировок</th>
+		<th>Количество блокировок по разрешенному списку</th>
+		<th>Количество блокировок по черному списку</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<?php foreach ($statistics as $item) { ?>
+		<tr>
+			<td><?= $this->escapeHtml($item['resource_name']) ?></td>
+			<td><?= $this->escapeHtml($item['amount_lock']) ?></td>
+			<td><?= $this->escapeHtml($item['amount_lock_list0']) ?></td>
+			<td><?= $this->escapeHtml($item['amount_lock_list1']) ?></td>
+		</tr>
+	<?php } ?>
+	</tbody>
+</table>
